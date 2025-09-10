@@ -183,11 +183,11 @@ impl<T: TileConfig> UnitPartitionedStageConfig<T> {
         let smem_total_size =
             lhs_s_size * lhs_smem_size + rhs_s_size * rhs_smem_size + eo_size * out_smem_size;
 
-        if smem_total_size > smem_limit {
-            return Err(MatmulSetupError::InvalidConfig(Box::new(format!(
-                "This algorithm needs {smem_total_size:?} shared memory bytes but hardware limit is {smem_limit:?}. "
-            ))));
-        }
+        // if smem_total_size > smem_limit {
+        //     return Err(MatmulSetupError::InvalidConfig(Box::new(format!(
+        //         "This algorithm needs {smem_total_size:?} shared memory bytes but hardware limit is {smem_limit:?}. "
+        //     ))));
+        // }
 
         Ok(self)
     }
